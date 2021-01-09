@@ -7,7 +7,7 @@ option go_package = "github.com/wilenceyao/humor-api/svr/rest";
 
 message TtsRequest {
     common.BaseRequest request = 1;
-    string DeviceID = 2;
+    string ClientID = 2;
     string Text = 3;
 }
 

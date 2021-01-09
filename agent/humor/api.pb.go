@@ -26,6 +26,52 @@ const (
 // of the legacy proto package is being used.
 const _ = proto.ProtoPackageIsVersion4
 
+type Action int32
+
+const (
+	Action_NONE Action = 0
+	Action_TTS  Action = 1
+)
+
+// Enum value maps for Action.
+var (
+	Action_name = map[int32]string{
+		0: "NONE",
+		1: "TTS",
+	}
+	Action_value = map[string]int32{
+		"NONE": 0,
+		"TTS":  1,
+	}
+)
+
+func (x Action) Enum() *Action {
+	p := new(Action)
+	*p = x
+	return p
+}
+
+func (x Action) String() string {
+	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
+}
+
+func (Action) Descriptor() protoreflect.EnumDescriptor {
+	return file_agent_humor_api_proto_enumTypes[0].Descriptor()
+}
+
+func (Action) Type() protoreflect.EnumType {
+	return &file_agent_humor_api_proto_enumTypes[0]
+}
+
+func (x Action) Number() protoreflect.EnumNumber {
+	return protoreflect.EnumNumber(x)
+}
+
+// Deprecated: Use Action.Descriptor instead.
+func (Action) EnumDescriptor() ([]byte, []int) {
+	return file_agent_humor_api_proto_rawDescGZIP(), []int{0}
+}
+
 type TtsRequest struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
@@ -143,10 +189,12 @@ var file_agent_humor_api_proto_rawDesc = []byte{
 	0x6e, 0x73, 0x65, 0x12, 0x30, 0x0a, 0x08, 0x72, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x18,
 	0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x14, 0x2e, 0x63, 0x6f, 0x6d, 0x6d, 0x6f, 0x6e, 0x2e, 0x42,
 	0x61, 0x73, 0x65, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x52, 0x08, 0x72, 0x65, 0x73,
-	0x70, 0x6f, 0x6e, 0x73, 0x65, 0x42, 0x2d, 0x5a, 0x2b, 0x67, 0x69, 0x74, 0x68, 0x75, 0x62, 0x2e,
-	0x63, 0x6f, 0x6d, 0x2f, 0x77, 0x69, 0x6c, 0x65, 0x6e, 0x63, 0x65, 0x79, 0x61, 0x6f, 0x2f, 0x68,
-	0x75, 0x6d, 0x6f, 0x72, 0x2d, 0x61, 0x70, 0x69, 0x2f, 0x61, 0x67, 0x65, 0x6e, 0x74, 0x2f, 0x68,
-	0x75, 0x6d, 0x6f, 0x72, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x70, 0x6f, 0x6e, 0x73, 0x65, 0x2a, 0x1b, 0x0a, 0x06, 0x41, 0x63, 0x74, 0x69, 0x6f, 0x6e, 0x12,
+	0x08, 0x0a, 0x04, 0x4e, 0x4f, 0x4e, 0x45, 0x10, 0x00, 0x12, 0x07, 0x0a, 0x03, 0x54, 0x54, 0x53,
+	0x10, 0x01, 0x42, 0x2d, 0x5a, 0x2b, 0x67, 0x69, 0x74, 0x68, 0x75, 0x62, 0x2e, 0x63, 0x6f, 0x6d,
+	0x2f, 0x77, 0x69, 0x6c, 0x65, 0x6e, 0x63, 0x65, 0x79, 0x61, 0x6f, 0x2f, 0x68, 0x75, 0x6d, 0x6f,
+	0x72, 0x2d, 0x61, 0x70, 0x69, 0x2f, 0x61, 0x67, 0x65, 0x6e, 0x74, 0x2f, 0x68, 0x75, 0x6d, 0x6f,
+	0x72, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -161,16 +209,18 @@ func file_agent_humor_api_proto_rawDescGZIP() []byte {
 	return file_agent_humor_api_proto_rawDescData
 }
 
+var file_agent_humor_api_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_agent_humor_api_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_agent_humor_api_proto_goTypes = []interface{}{
-	(*TtsRequest)(nil),          // 0: humor.TtsRequest
-	(*TtsResponse)(nil),         // 1: humor.TtsResponse
-	(*common.BaseRequest)(nil),  // 2: common.BaseRequest
-	(*common.BaseResponse)(nil), // 3: common.BaseResponse
+	(Action)(0),                 // 0: humor.Action
+	(*TtsRequest)(nil),          // 1: humor.TtsRequest
+	(*TtsResponse)(nil),         // 2: humor.TtsResponse
+	(*common.BaseRequest)(nil),  // 3: common.BaseRequest
+	(*common.BaseResponse)(nil), // 4: common.BaseResponse
 }
 var file_agent_humor_api_proto_depIdxs = []int32{
-	2, // 0: humor.TtsRequest.request:type_name -> common.BaseRequest
-	3, // 1: humor.TtsResponse.response:type_name -> common.BaseResponse
+	3, // 0: humor.TtsRequest.request:type_name -> common.BaseRequest
+	4, // 1: humor.TtsResponse.response:type_name -> common.BaseResponse
 	2, // [2:2] is the sub-list for method output_type
 	2, // [2:2] is the sub-list for method input_type
 	2, // [2:2] is the sub-list for extension type_name
@@ -214,13 +264,14 @@ func file_agent_humor_api_proto_init() {
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_agent_humor_api_proto_rawDesc,
-			NumEnums:      0,
+			NumEnums:      1,
 			NumMessages:   2,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
 		GoTypes:           file_agent_humor_api_proto_goTypes,
 		DependencyIndexes: file_agent_humor_api_proto_depIdxs,
+		EnumInfos:         file_agent_humor_api_proto_enumTypes,
 		MessageInfos:      file_agent_humor_api_proto_msgTypes,
 	}.Build()
 	File_agent_humor_api_proto = out.File

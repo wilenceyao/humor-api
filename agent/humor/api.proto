@@ -5,6 +5,11 @@ import "common/common.proto";
 
 option go_package = "github.com/wilenceyao/humor-api/agent/humor";
 
+enum Action {
+    NONE = 0;
+    TTS = 1;
+}
+
 message TtsRequest {
     common.BaseRequest request = 1;
     string Text = 2;
