@@ -1,0 +1,15 @@
+syntax = "proto3";
+package humor;
+
+import "common/common.proto";
+
+option go_package = "github.com/wilenceyao/humor-api/agent/humor";
+
+message TtsRequest {
+    common.BaseRequest request = 1;
+    string Text = 2;
+}
+
+message TtsResponse {
+    common.BaseResponse response = 1;
+}

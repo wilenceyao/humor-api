@@ -1,0 +1,16 @@
+syntax = "proto3";
+package rest;
+
+import "common/common.proto";
+
+option go_package = "github.com/wilenceyao/humor-api/svr/rest";
+
+message TtsRequest {
+    common.BaseRequest request = 1;
+    string DeviceID = 2;
+    string Text = 3;
+}
+
+message TtsResponse {
+    common.BaseResponse response = 1;
+}
