@@ -8,6 +8,7 @@ option go_package = "github.com/wilenceyao/humor-api/agent/humor";
 enum Action {
     NONE = 0;
     TTS = 1;
+    WEATHER = 2;
 }
 
 message TtsRequest {
@@ -16,5 +17,13 @@ message TtsRequest {
 }
 
 message TtsResponse {
+    common.BaseResponse response = 1;
+}
+
+message WeatherRequest {
+    common.BaseRequest request = 1;
+}
+
+message WeatherResponse {
     common.BaseResponse response = 1;
 }

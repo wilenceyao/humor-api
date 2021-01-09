@@ -136,6 +136,100 @@ func (x *TtsResponse) GetResponse() *common.BaseResponse {
 	return nil
 }
 
+type WeatherRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Request *common.BaseRequest `protobuf:"bytes,1,opt,name=request,proto3" json:"request,omitempty"`
+}
+
+func (x *WeatherRequest) Reset() {
+	*x = WeatherRequest{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_svr_rest_api_proto_msgTypes[2]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *WeatherRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*WeatherRequest) ProtoMessage() {}
+
+func (x *WeatherRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_svr_rest_api_proto_msgTypes[2]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use WeatherRequest.ProtoReflect.Descriptor instead.
+func (*WeatherRequest) Descriptor() ([]byte, []int) {
+	return file_svr_rest_api_proto_rawDescGZIP(), []int{2}
+}
+
+func (x *WeatherRequest) GetRequest() *common.BaseRequest {
+	if x != nil {
+		return x.Request
+	}
+	return nil
+}
+
+type WeatherResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Response *common.BaseResponse `protobuf:"bytes,1,opt,name=response,proto3" json:"response,omitempty"`
+}
+
+func (x *WeatherResponse) Reset() {
+	*x = WeatherResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_svr_rest_api_proto_msgTypes[3]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *WeatherResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*WeatherResponse) ProtoMessage() {}
+
+func (x *WeatherResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_svr_rest_api_proto_msgTypes[3]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use WeatherResponse.ProtoReflect.Descriptor instead.
+func (*WeatherResponse) Descriptor() ([]byte, []int) {
+	return file_svr_rest_api_proto_rawDescGZIP(), []int{3}
+}
+
+func (x *WeatherResponse) GetResponse() *common.BaseResponse {
+	if x != nil {
+		return x.Response
+	}
+	return nil
+}
+
 var File_svr_rest_api_proto protoreflect.FileDescriptor
 
 var file_svr_rest_api_proto_rawDesc = []byte{
@@ -152,11 +246,19 @@ var file_svr_rest_api_proto_rawDesc = []byte{
 	0x54, 0x74, 0x73, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x30, 0x0a, 0x08, 0x72,
 	0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x14, 0x2e,
 	0x63, 0x6f, 0x6d, 0x6d, 0x6f, 0x6e, 0x2e, 0x42, 0x61, 0x73, 0x65, 0x52, 0x65, 0x73, 0x70, 0x6f,
-	0x6e, 0x73, 0x65, 0x52, 0x08, 0x72, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x42, 0x2a, 0x5a,
-	0x28, 0x67, 0x69, 0x74, 0x68, 0x75, 0x62, 0x2e, 0x63, 0x6f, 0x6d, 0x2f, 0x77, 0x69, 0x6c, 0x65,
-	0x6e, 0x63, 0x65, 0x79, 0x61, 0x6f, 0x2f, 0x68, 0x75, 0x6d, 0x6f, 0x72, 0x2d, 0x61, 0x70, 0x69,
-	0x2f, 0x73, 0x76, 0x72, 0x2f, 0x72, 0x65, 0x73, 0x74, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f,
-	0x33,
+	0x6e, 0x73, 0x65, 0x52, 0x08, 0x72, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x3f, 0x0a,
+	0x0e, 0x57, 0x65, 0x61, 0x74, 0x68, 0x65, 0x72, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12,
+	0x2d, 0x0a, 0x07, 0x72, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b,
+	0x32, 0x13, 0x2e, 0x63, 0x6f, 0x6d, 0x6d, 0x6f, 0x6e, 0x2e, 0x42, 0x61, 0x73, 0x65, 0x52, 0x65,
+	0x71, 0x75, 0x65, 0x73, 0x74, 0x52, 0x07, 0x72, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x22, 0x43,
+	0x0a, 0x0f, 0x57, 0x65, 0x61, 0x74, 0x68, 0x65, 0x72, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73,
+	0x65, 0x12, 0x30, 0x0a, 0x08, 0x72, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x18, 0x01, 0x20,
+	0x01, 0x28, 0x0b, 0x32, 0x14, 0x2e, 0x63, 0x6f, 0x6d, 0x6d, 0x6f, 0x6e, 0x2e, 0x42, 0x61, 0x73,
+	0x65, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x52, 0x08, 0x72, 0x65, 0x73, 0x70, 0x6f,
+	0x6e, 0x73, 0x65, 0x42, 0x2a, 0x5a, 0x28, 0x67, 0x69, 0x74, 0x68, 0x75, 0x62, 0x2e, 0x63, 0x6f,
+	0x6d, 0x2f, 0x77, 0x69, 0x6c, 0x65, 0x6e, 0x63, 0x65, 0x79, 0x61, 0x6f, 0x2f, 0x68, 0x75, 0x6d,
+	0x6f, 0x72, 0x2d, 0x61, 0x70, 0x69, 0x2f, 0x73, 0x76, 0x72, 0x2f, 0x72, 0x65, 0x73, 0x74, 0x62,
+	0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -171,21 +273,25 @@ func file_svr_rest_api_proto_rawDescGZIP() []byte {
 	return file_svr_rest_api_proto_rawDescData
 }
 
-var file_svr_rest_api_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
+var file_svr_rest_api_proto_msgTypes = make([]protoimpl.MessageInfo, 4)
 var file_svr_rest_api_proto_goTypes = []interface{}{
 	(*TtsRequest)(nil),          // 0: rest.TtsRequest
 	(*TtsResponse)(nil),         // 1: rest.TtsResponse
-	(*common.BaseRequest)(nil),  // 2: common.BaseRequest
-	(*common.BaseResponse)(nil), // 3: common.BaseResponse
+	(*WeatherRequest)(nil),      // 2: rest.WeatherRequest
+	(*WeatherResponse)(nil),     // 3: rest.WeatherResponse
+	(*common.BaseRequest)(nil),  // 4: common.BaseRequest
+	(*common.BaseResponse)(nil), // 5: common.BaseResponse
 }
 var file_svr_rest_api_proto_depIdxs = []int32{
-	2, // 0: rest.TtsRequest.request:type_name -> common.BaseRequest
-	3, // 1: rest.TtsResponse.response:type_name -> common.BaseResponse
-	2, // [2:2] is the sub-list for method output_type
-	2, // [2:2] is the sub-list for method input_type
-	2, // [2:2] is the sub-list for extension type_name
-	2, // [2:2] is the sub-list for extension extendee
-	0, // [0:2] is the sub-list for field type_name
+	4, // 0: rest.TtsRequest.request:type_name -> common.BaseRequest
+	5, // 1: rest.TtsResponse.response:type_name -> common.BaseResponse
+	4, // 2: rest.WeatherRequest.request:type_name -> common.BaseRequest
+	5, // 3: rest.WeatherResponse.response:type_name -> common.BaseResponse
+	4, // [4:4] is the sub-list for method output_type
+	4, // [4:4] is the sub-list for method input_type
+	4, // [4:4] is the sub-list for extension type_name
+	4, // [4:4] is the sub-list for extension extendee
+	0, // [0:4] is the sub-list for field type_name
 }
 
 func init() { file_svr_rest_api_proto_init() }
@@ -218,6 +324,30 @@ func file_svr_rest_api_proto_init() {
 				return nil
 			}
 		}
+		file_svr_rest_api_proto_msgTypes[2].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*WeatherRequest); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_svr_rest_api_proto_msgTypes[3].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*WeatherResponse); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
 	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
@@ -225,7 +355,7 @@ func file_svr_rest_api_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_svr_rest_api_proto_rawDesc,
 			NumEnums:      0,
-			NumMessages:   2,
+			NumMessages:   4,
 			NumExtensions: 0,
 			NumServices:   0,
 		},

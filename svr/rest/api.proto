@@ -14,3 +14,11 @@ message TtsRequest {
 message TtsResponse {
     common.BaseResponse response = 1;
 }
+
+message WeatherRequest {
+    common.BaseRequest request = 1;
+}
+
+message WeatherResponse {
+    common.BaseResponse response = 1;
+}
