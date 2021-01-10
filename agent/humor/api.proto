@@ -5,25 +5,25 @@ import "common/common.proto";
 
 option go_package = "github.com/wilenceyao/humor-api/agent/humor";
 
-enum Action {
-    NONE = 0;
-    TTS = 1;
-    WEATHER = 2;
+
+service AgentService {
+  rpc Tts(TtsRequest) returns (TtsResponse);
+  rpc Weather(WeatherRequest) returns (WeatherResponse);
 }
 
 message TtsRequest {
-    common.BaseRequest request = 1;
-    string Text = 2;
+  common.BaseRequest request = 1;
+  string Text = 2;
 }
 
 message TtsResponse {
-    common.BaseResponse response = 1;
+  common.BaseResponse response = 1;
 }
 
 message WeatherRequest {
-    common.BaseRequest request = 1;
+  common.BaseRequest request = 1;
 }
 
 message WeatherResponse {
-    common.BaseResponse response = 1;
+  common.BaseResponse response = 1;
 }
