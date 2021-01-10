@@ -7,6 +7,7 @@ enum ErrorCode {
      // 参数类错误
      INVALID_PARAMETERS = 1;
      UNSUPPORTED_OPERATION = 2;
+     UNAUTHORIZED = 3;
      // 内部错误
      INTERNAL_ERROR = 10;
      // 外部错误，20开头
