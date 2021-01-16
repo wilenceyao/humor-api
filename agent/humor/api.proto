@@ -9,6 +9,7 @@ option go_package = "github.com/wilenceyao/humor-api/agent/humor";
 service AgentService {
   rpc Tts(TtsRequest) returns (TtsResponse);
   rpc Weather(WeatherRequest) returns (WeatherResponse);
+  rpc TakePhoto(TakePhotoRequest) returns (TakePhotoResponse);
 }
 
 message TtsRequest {
@@ -25,5 +26,14 @@ message WeatherRequest {
 }
 
 message WeatherResponse {
+  common.BaseResponse response = 1;
+}
+
+message TakePhotoRequest {
+  common.BaseRequest request = 1;
+  string ID = 2;
+}
+
+message TakePhotoResponse {
   common.BaseResponse response = 1;
 }

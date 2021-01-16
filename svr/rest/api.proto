@@ -21,3 +21,12 @@ message WeatherRequest {
 message WeatherResponse {
   common.BaseResponse response = 1;
 }
+
+message TakePhotoRequest {
+  common.BaseRequest request = 1;
+}
+
+message TakePhotoResponse {
+  common.BaseResponse response = 1;
+  string ID = 2;
+}

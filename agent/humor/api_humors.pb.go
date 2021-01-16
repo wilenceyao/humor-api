@@ -13,6 +13,7 @@ import (
 type AgentServiceClient interface {
 	Tts(ctx context.Context, clientID string, in *TtsRequest) (*TtsResponse, error)
 	Weather(ctx context.Context, clientID string, in *WeatherRequest) (*WeatherResponse, error)
+	TakePhoto(ctx context.Context, clientID string, in *TakePhotoRequest) (*TakePhotoResponse, error)
 }
 
 type agentServiceClient struct {
@@ -44,9 +45,19 @@ func (c *agentServiceClient) Weather(ctx context.Context, clientID string, in *W
 	return out, nil
 }
 
+func (c *agentServiceClient) TakePhoto(ctx context.Context, clientID string, in *TakePhotoRequest) (*TakePhotoResponse, error) {
+	out := new(TakePhotoResponse)
+	err := c.adaptor.Call(ctx, clientID, "TakePhoto", in, out)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 type AgentServiceServer interface {
 	Tts(context.Context, *TtsRequest) (*TtsResponse, error)
 	Weather(context.Context, *WeatherRequest) (*WeatherResponse, error)
+	TakePhoto(context.Context, *TakePhotoRequest) (*TakePhotoResponse, error)
 }
 
 func RegisterAgentServiceServer(h *humors.Humors, impl AgentServiceServer) {
@@ -58,5 +69,9 @@ func RegisterAgentServiceServer(h *humors.Humors, impl AgentServiceServer) {
 	servant.RegisterMethod("Weather", WeatherRequest{}, func(ctx context.Context, req proto.Message) (proto.Message, error) {
 		reqObj := req.(*WeatherRequest)
 		return impl.Weather(ctx, reqObj)
+	})
+	servant.RegisterMethod("TakePhoto", TakePhotoRequest{}, func(ctx context.Context, req proto.Message) (proto.Message, error) {
+		reqObj := req.(*TakePhotoRequest)
+		return impl.TakePhoto(ctx, reqObj)
 	})
 }
