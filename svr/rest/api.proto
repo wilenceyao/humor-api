@@ -7,7 +7,7 @@ option go_package = "github.com/wilenceyao/humor-api/svr/rest";
 
 message TtsRequest {
   common.BaseRequest request = 1;
-  string Text = 2;
+  string text = 2;
 }
 
 message TtsResponse {
@@ -28,5 +28,21 @@ message TakePhotoRequest {
 
 message TakePhotoResponse {
   common.BaseResponse response = 1;
-  string ID = 2;
+  string id = 2;
+}
+
+message GetPhotoRequest {
+  common.BaseRequest request = 1;
+  int32 limit = 2;
+  int32 offset = 3;
+}
+
+message GetPhotoResponse {
+  message Photo {
+    string id = 1;
+    string src = 2;
+  }
+  common.BaseResponse response = 1;
+  int32 total = 2;
+  repeated Photo photos = 3;
 }

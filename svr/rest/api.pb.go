@@ -32,7 +32,7 @@ type TtsRequest struct {
 	unknownFields protoimpl.UnknownFields
 
 	Request *common.BaseRequest `protobuf:"bytes,1,opt,name=request,proto3" json:"request,omitempty"`
-	Text    string              `protobuf:"bytes,2,opt,name=Text,proto3" json:"Text,omitempty"`
+	Text    string              `protobuf:"bytes,2,opt,name=text,proto3" json:"text,omitempty"`
 }
 
 func (x *TtsRequest) Reset() {
@@ -275,7 +275,7 @@ type TakePhotoResponse struct {
 	unknownFields protoimpl.UnknownFields
 
 	Response *common.BaseResponse `protobuf:"bytes,1,opt,name=response,proto3" json:"response,omitempty"`
-	ID       string               `protobuf:"bytes,2,opt,name=ID,proto3" json:"ID,omitempty"`
+	Id       string               `protobuf:"bytes,2,opt,name=id,proto3" json:"id,omitempty"`
 }
 
 func (x *TakePhotoResponse) Reset() {
@@ -317,9 +317,190 @@ func (x *TakePhotoResponse) GetResponse() *common.BaseResponse {
 	return nil
 }
 
-func (x *TakePhotoResponse) GetID() string {
+func (x *TakePhotoResponse) GetId() string {
 	if x != nil {
-		return x.ID
+		return x.Id
+	}
+	return ""
+}
+
+type GetPhotoRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Request *common.BaseRequest `protobuf:"bytes,1,opt,name=request,proto3" json:"request,omitempty"`
+	Limit   int32               `protobuf:"varint,2,opt,name=limit,proto3" json:"limit,omitempty"`
+	Offset  int32               `protobuf:"varint,3,opt,name=offset,proto3" json:"offset,omitempty"`
+}
+
+func (x *GetPhotoRequest) Reset() {
+	*x = GetPhotoRequest{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_svr_rest_api_proto_msgTypes[6]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *GetPhotoRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPhotoRequest) ProtoMessage() {}
+
+func (x *GetPhotoRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_svr_rest_api_proto_msgTypes[6]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPhotoRequest.ProtoReflect.Descriptor instead.
+func (*GetPhotoRequest) Descriptor() ([]byte, []int) {
+	return file_svr_rest_api_proto_rawDescGZIP(), []int{6}
+}
+
+func (x *GetPhotoRequest) GetRequest() *common.BaseRequest {
+	if x != nil {
+		return x.Request
+	}
+	return nil
+}
+
+func (x *GetPhotoRequest) GetLimit() int32 {
+	if x != nil {
+		return x.Limit
+	}
+	return 0
+}
+
+func (x *GetPhotoRequest) GetOffset() int32 {
+	if x != nil {
+		return x.Offset
+	}
+	return 0
+}
+
+type GetPhotoResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Response *common.BaseResponse      `protobuf:"bytes,1,opt,name=response,proto3" json:"response,omitempty"`
+	Total    int32                     `protobuf:"varint,2,opt,name=total,proto3" json:"total,omitempty"`
+	Photos   []*GetPhotoResponse_Photo `protobuf:"bytes,3,rep,name=photos,proto3" json:"photos,omitempty"`
+}
+
+func (x *GetPhotoResponse) Reset() {
+	*x = GetPhotoResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_svr_rest_api_proto_msgTypes[7]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *GetPhotoResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPhotoResponse) ProtoMessage() {}
+
+func (x *GetPhotoResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_svr_rest_api_proto_msgTypes[7]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPhotoResponse.ProtoReflect.Descriptor instead.
+func (*GetPhotoResponse) Descriptor() ([]byte, []int) {
+	return file_svr_rest_api_proto_rawDescGZIP(), []int{7}
+}
+
+func (x *GetPhotoResponse) GetResponse() *common.BaseResponse {
+	if x != nil {
+		return x.Response
+	}
+	return nil
+}
+
+func (x *GetPhotoResponse) GetTotal() int32 {
+	if x != nil {
+		return x.Total
+	}
+	return 0
+}
+
+func (x *GetPhotoResponse) GetPhotos() []*GetPhotoResponse_Photo {
+	if x != nil {
+		return x.Photos
+	}
+	return nil
+}
+
+type GetPhotoResponse_Photo struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Id  string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
+	Src string `protobuf:"bytes,2,opt,name=src,proto3" json:"src,omitempty"`
+}
+
+func (x *GetPhotoResponse_Photo) Reset() {
+	*x = GetPhotoResponse_Photo{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_svr_rest_api_proto_msgTypes[8]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *GetPhotoResponse_Photo) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPhotoResponse_Photo) ProtoMessage() {}
+
+func (x *GetPhotoResponse_Photo) ProtoReflect() protoreflect.Message {
+	mi := &file_svr_rest_api_proto_msgTypes[8]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPhotoResponse_Photo.ProtoReflect.Descriptor instead.
+func (*GetPhotoResponse_Photo) Descriptor() ([]byte, []int) {
+	return file_svr_rest_api_proto_rawDescGZIP(), []int{7, 0}
+}
+
+func (x *GetPhotoResponse_Photo) GetId() string {
+	if x != nil {
+		return x.Id
+	}
+	return ""
+}
+
+func (x *GetPhotoResponse_Photo) GetSrc() string {
+	if x != nil {
+		return x.Src
 	}
 	return ""
 }
@@ -334,7 +515,7 @@ var file_svr_rest_api_proto_rawDesc = []byte{
 	0x07, 0x72, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x13,
 	0x2e, 0x63, 0x6f, 0x6d, 0x6d, 0x6f, 0x6e, 0x2e, 0x42, 0x61, 0x73, 0x65, 0x52, 0x65, 0x71, 0x75,
 	0x65, 0x73, 0x74, 0x52, 0x07, 0x72, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x12, 0x0a, 0x04,
-	0x54, 0x65, 0x78, 0x74, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x04, 0x54, 0x65, 0x78, 0x74,
+	0x74, 0x65, 0x78, 0x74, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x04, 0x74, 0x65, 0x78, 0x74,
 	0x22, 0x3f, 0x0a, 0x0b, 0x54, 0x74, 0x73, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12,
 	0x30, 0x0a, 0x08, 0x72, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28,
 	0x0b, 0x32, 0x14, 0x2e, 0x63, 0x6f, 0x6d, 0x6d, 0x6f, 0x6e, 0x2e, 0x42, 0x61, 0x73, 0x65, 0x52,
@@ -356,11 +537,30 @@ var file_svr_rest_api_proto_rawDesc = []byte{
 	0x30, 0x0a, 0x08, 0x72, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28,
 	0x0b, 0x32, 0x14, 0x2e, 0x63, 0x6f, 0x6d, 0x6d, 0x6f, 0x6e, 0x2e, 0x42, 0x61, 0x73, 0x65, 0x52,
 	0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x52, 0x08, 0x72, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73,
-	0x65, 0x12, 0x0e, 0x0a, 0x02, 0x49, 0x44, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x02, 0x49,
-	0x44, 0x42, 0x2a, 0x5a, 0x28, 0x67, 0x69, 0x74, 0x68, 0x75, 0x62, 0x2e, 0x63, 0x6f, 0x6d, 0x2f,
-	0x77, 0x69, 0x6c, 0x65, 0x6e, 0x63, 0x65, 0x79, 0x61, 0x6f, 0x2f, 0x68, 0x75, 0x6d, 0x6f, 0x72,
-	0x2d, 0x61, 0x70, 0x69, 0x2f, 0x73, 0x76, 0x72, 0x2f, 0x72, 0x65, 0x73, 0x74, 0x62, 0x06, 0x70,
-	0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x65, 0x12, 0x0e, 0x0a, 0x02, 0x69, 0x64, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x02, 0x69,
+	0x64, 0x22, 0x6e, 0x0a, 0x0f, 0x47, 0x65, 0x74, 0x50, 0x68, 0x6f, 0x74, 0x6f, 0x52, 0x65, 0x71,
+	0x75, 0x65, 0x73, 0x74, 0x12, 0x2d, 0x0a, 0x07, 0x72, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x18,
+	0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x13, 0x2e, 0x63, 0x6f, 0x6d, 0x6d, 0x6f, 0x6e, 0x2e, 0x42,
+	0x61, 0x73, 0x65, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x52, 0x07, 0x72, 0x65, 0x71, 0x75,
+	0x65, 0x73, 0x74, 0x12, 0x14, 0x0a, 0x05, 0x6c, 0x69, 0x6d, 0x69, 0x74, 0x18, 0x02, 0x20, 0x01,
+	0x28, 0x05, 0x52, 0x05, 0x6c, 0x69, 0x6d, 0x69, 0x74, 0x12, 0x16, 0x0a, 0x06, 0x6f, 0x66, 0x66,
+	0x73, 0x65, 0x74, 0x18, 0x03, 0x20, 0x01, 0x28, 0x05, 0x52, 0x06, 0x6f, 0x66, 0x66, 0x73, 0x65,
+	0x74, 0x22, 0xbb, 0x01, 0x0a, 0x10, 0x47, 0x65, 0x74, 0x50, 0x68, 0x6f, 0x74, 0x6f, 0x52, 0x65,
+	0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x30, 0x0a, 0x08, 0x72, 0x65, 0x73, 0x70, 0x6f, 0x6e,
+	0x73, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x14, 0x2e, 0x63, 0x6f, 0x6d, 0x6d, 0x6f,
+	0x6e, 0x2e, 0x42, 0x61, 0x73, 0x65, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x52, 0x08,
+	0x72, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x14, 0x0a, 0x05, 0x74, 0x6f, 0x74, 0x61,
+	0x6c, 0x18, 0x02, 0x20, 0x01, 0x28, 0x05, 0x52, 0x05, 0x74, 0x6f, 0x74, 0x61, 0x6c, 0x12, 0x34,
+	0x0a, 0x06, 0x70, 0x68, 0x6f, 0x74, 0x6f, 0x73, 0x18, 0x03, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x1c,
+	0x2e, 0x72, 0x65, 0x73, 0x74, 0x2e, 0x47, 0x65, 0x74, 0x50, 0x68, 0x6f, 0x74, 0x6f, 0x52, 0x65,
+	0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x2e, 0x50, 0x68, 0x6f, 0x74, 0x6f, 0x52, 0x06, 0x70, 0x68,
+	0x6f, 0x74, 0x6f, 0x73, 0x1a, 0x29, 0x0a, 0x05, 0x50, 0x68, 0x6f, 0x74, 0x6f, 0x12, 0x0e, 0x0a,
+	0x02, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x02, 0x69, 0x64, 0x12, 0x10, 0x0a,
+	0x03, 0x73, 0x72, 0x63, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x03, 0x73, 0x72, 0x63, 0x42,
+	0x2a, 0x5a, 0x28, 0x67, 0x69, 0x74, 0x68, 0x75, 0x62, 0x2e, 0x63, 0x6f, 0x6d, 0x2f, 0x77, 0x69,
+	0x6c, 0x65, 0x6e, 0x63, 0x65, 0x79, 0x61, 0x6f, 0x2f, 0x68, 0x75, 0x6d, 0x6f, 0x72, 0x2d, 0x61,
+	0x70, 0x69, 0x2f, 0x73, 0x76, 0x72, 0x2f, 0x72, 0x65, 0x73, 0x74, 0x62, 0x06, 0x70, 0x72, 0x6f,
+	0x74, 0x6f, 0x33,
 }
 
 var (
@@ -375,29 +575,35 @@ func file_svr_rest_api_proto_rawDescGZIP() []byte {
 	return file_svr_rest_api_proto_rawDescData
 }
 
-var file_svr_rest_api_proto_msgTypes = make([]protoimpl.MessageInfo, 6)
+var file_svr_rest_api_proto_msgTypes = make([]protoimpl.MessageInfo, 9)
 var file_svr_rest_api_proto_goTypes = []interface{}{
-	(*TtsRequest)(nil),          // 0: rest.TtsRequest
-	(*TtsResponse)(nil),         // 1: rest.TtsResponse
-	(*WeatherRequest)(nil),      // 2: rest.WeatherRequest
-	(*WeatherResponse)(nil),     // 3: rest.WeatherResponse
-	(*TakePhotoRequest)(nil),    // 4: rest.TakePhotoRequest
-	(*TakePhotoResponse)(nil),   // 5: rest.TakePhotoResponse
-	(*common.BaseRequest)(nil),  // 6: common.BaseRequest
-	(*common.BaseResponse)(nil), // 7: common.BaseResponse
+	(*TtsRequest)(nil),             // 0: rest.TtsRequest
+	(*TtsResponse)(nil),            // 1: rest.TtsResponse
+	(*WeatherRequest)(nil),         // 2: rest.WeatherRequest
+	(*WeatherResponse)(nil),        // 3: rest.WeatherResponse
+	(*TakePhotoRequest)(nil),       // 4: rest.TakePhotoRequest
+	(*TakePhotoResponse)(nil),      // 5: rest.TakePhotoResponse
+	(*GetPhotoRequest)(nil),        // 6: rest.GetPhotoRequest
+	(*GetPhotoResponse)(nil),       // 7: rest.GetPhotoResponse
+	(*GetPhotoResponse_Photo)(nil), // 8: rest.GetPhotoResponse.Photo
+	(*common.BaseRequest)(nil),     // 9: common.BaseRequest
+	(*common.BaseResponse)(nil),    // 10: common.BaseResponse
 }
 var file_svr_rest_api_proto_depIdxs = []int32{
-	6, // 0: rest.TtsRequest.request:type_name -> common.BaseRequest
-	7, // 1: rest.TtsResponse.response:type_name -> common.BaseResponse
-	6, // 2: rest.WeatherRequest.request:type_name -> common.BaseRequest
-	7, // 3: rest.WeatherResponse.response:type_name -> common.BaseResponse
-	6, // 4: rest.TakePhotoRequest.request:type_name -> common.BaseRequest
-	7, // 5: rest.TakePhotoResponse.response:type_name -> common.BaseResponse
-	6, // [6:6] is the sub-list for method output_type
-	6, // [6:6] is the sub-list for method input_type
-	6, // [6:6] is the sub-list for extension type_name
-	6, // [6:6] is the sub-list for extension extendee
-	0, // [0:6] is the sub-list for field type_name
+	9,  // 0: rest.TtsRequest.request:type_name -> common.BaseRequest
+	10, // 1: rest.TtsResponse.response:type_name -> common.BaseResponse
+	9,  // 2: rest.WeatherRequest.request:type_name -> common.BaseRequest
+	10, // 3: rest.WeatherResponse.response:type_name -> common.BaseResponse
+	9,  // 4: rest.TakePhotoRequest.request:type_name -> common.BaseRequest
+	10, // 5: rest.TakePhotoResponse.response:type_name -> common.BaseResponse
+	9,  // 6: rest.GetPhotoRequest.request:type_name -> common.BaseRequest
+	10, // 7: rest.GetPhotoResponse.response:type_name -> common.BaseResponse
+	8,  // 8: rest.GetPhotoResponse.photos:type_name -> rest.GetPhotoResponse.Photo
+	9,  // [9:9] is the sub-list for method output_type
+	9,  // [9:9] is the sub-list for method input_type
+	9,  // [9:9] is the sub-list for extension type_name
+	9,  // [9:9] is the sub-list for extension extendee
+	0,  // [0:9] is the sub-list for field type_name
 }
 
 func init() { file_svr_rest_api_proto_init() }
@@ -478,6 +684,42 @@ func file_svr_rest_api_proto_init() {
 				return nil
 			}
 		}
+		file_svr_rest_api_proto_msgTypes[6].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*GetPhotoRequest); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_svr_rest_api_proto_msgTypes[7].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*GetPhotoResponse); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_svr_rest_api_proto_msgTypes[8].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*GetPhotoResponse_Photo); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
 	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
@@ -485,7 +727,7 @@ func file_svr_rest_api_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_svr_rest_api_proto_rawDesc,
 			NumEnums:      0,
-			NumMessages:   6,
+			NumMessages:   9,
 			NumExtensions: 0,
 			NumServices:   0,
 		},

@@ -16,7 +16,7 @@ enum ErrorCode {
 
 
 message BaseRequest {
-    string RequestID = 1;
+    string requestID = 1;
 }
 
 message BaseResponse {
