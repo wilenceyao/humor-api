@@ -14,7 +14,7 @@ service AgentService {
 
 message TtsRequest {
   common.BaseRequest request = 1;
-  string Text = 2;
+  string text = 2;
 }
 
 message TtsResponse {
@@ -31,7 +31,7 @@ message WeatherResponse {
 
 message TakePhotoRequest {
   common.BaseRequest request = 1;
-  string ID = 2;
+  string id = 2;
 }
 
 message TakePhotoResponse {
